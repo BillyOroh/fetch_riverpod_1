@@ -19,12 +19,12 @@ class MainScreen extends ConsumerStatefulWidget {
 class _MainScreenState extends ConsumerState<MainScreen> {
   final TextEditingController searchController = TextEditingController();
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   // searchController.text = 'coba';
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // searchController.text = 'coba';
+  }
 
   @override
   Widget build(
