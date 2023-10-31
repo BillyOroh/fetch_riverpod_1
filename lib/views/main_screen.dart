@@ -9,15 +9,29 @@ import 'package:fetch_riverpod_1/models/model_3.dart';
 import 'package:fetch_riverpod_1/services/services.dart';
 import 'package:fetch_riverpod_1/constants/colors.dart';
 
-class MainScreen extends ConsumerWidget {
+class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  ConsumerState<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends ConsumerState<MainScreen> {
+  final TextEditingController searchController = TextEditingController();
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   // searchController.text = 'coba';
+  // }
 
   @override
   Widget build(
     BuildContext context,
-    WidgetRef ref,
+    
   ) {
-    final TextEditingController searchController = TextEditingController();
+    
     final allTeamData = ref.watch(allLeagueDataProvider);
     String player = searchController.text;
     AsyncValue<List<Player>> playerData = ref.watch(playerDataProvider(player));
@@ -143,7 +157,7 @@ class MainScreen extends ConsumerWidget {
       if (searchController.text.isEmpty) {
         return allTeam();
       } else {
-        return allPlayer(ref.watch(playerDataProvider(player)));
+        return allPlayer(value);
       }
     }
 
@@ -200,12 +214,14 @@ class MainScreen extends ConsumerWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                PlayerScreen(player: searchController.text),
-                          ));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) =>
+                      //           PlayerScreen(player: searchController.text),
+                      //     ));
+                      showOnScreen(ref.watch(playerDataProvider(player)));
+                      
                     },
                     icon: const Icon(Icons.search),
                   )

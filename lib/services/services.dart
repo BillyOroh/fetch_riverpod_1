@@ -67,7 +67,7 @@ final teamDetailsDataProvider =
   return ref.watch(leagueProvider).getTeamDetails(team);
 });
 final playerDataProvider =
-    FutureProvider.family<List<Player>, String>((ref, player) async {
+    FutureProvider.autoDispose.family<List<Player>, String>((ref, player) async {
   return ref.watch(leagueProvider).getPlayer(player);
 });
 
