@@ -116,8 +116,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     }
 
     
-    allPlayer(AsyncValue<List<Player>> value) {
-      return value.when(
+    allPlayer() {
+      return playerData.when(
           data: (value) {
             List<Player> leagueList = value.map((e) => e).toList();
             return Expanded(
@@ -172,11 +172,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               ));
     }
 
-    showOnScreen(AsyncValue<List<Player>> value) {
+    showOnScreen() {
       if (searchController.text.isEmpty) {
         return allTeam();
       } else {
-        return allPlayer(value);
+        return allPlayer();
       }
     }
 
@@ -220,7 +220,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                       onChanged: (value) {
                         playerData = ref.watch(playerDataProvider(value));
                         // ref.watch(playerDataProvider(value));
-                        showOnScreen(playerData);
+                        // showOnScreen(playerData);
                         // print(playerData.hasValue);
                         // print(playerData.value);
                         print(value);
@@ -247,7 +247,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 ],
               ),
               const SizedBox(height: 10.0),
-              showOnScreen(playerData),
+              showOnScreen(),
             ],
           ),
         ));
