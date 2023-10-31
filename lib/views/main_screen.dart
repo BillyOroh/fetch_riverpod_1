@@ -125,29 +125,48 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 itemCount: leagueList.length,
                 itemBuilder: (_, index) {
                   return Card(
-                    child: ListTile(
-                      // onTap: () {
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //         builder: (context) => LeagueScreen(
-                      //             team: leagueList[index].strLeague),
-                      //       ));
-                      // },
-                      title: Text(leagueList[index].strPlayer),
-
-                      // subtitle: Text(leagueList[index].strDescriptionEN),
-                      // leading: CircleAvatar(
-                      //   backgroundImage:
-                      //       NetworkImage(leagueList[index].strThumb),
-                      // ),
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  child: ListTile(
+                    // onTap: () {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => LeagueScreen(
+                    //             team: leagueList[index].strLeague),
+                    //       ));
+                    // },
+                    title: Text(leagueList[index].strPlayer),
+                    subtitle: Text(
+                        leagueList[index].strDescriptionEN ?? 'No information on this player'),
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: NetworkImage(leagueList[index]
+                              .strThumb ??
+                          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"),
                     ),
-                  );
+                  ),
+                );
                 },
               ),
             );
           },
-          error: (err, s) => Text(err.toString()),
+           error: (err, s) {
+            return const Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image(
+                  image: AssetImage('error.png'),
+                ),
+                Text(
+                  'No player found!',
+                  style: TextStyle(fontSize: 30.0),
+                ),
+              ],
+            ));
+          },
           loading: () => const Center(
                 child: CircularProgressIndicator(),
               ));
@@ -212,19 +231,19 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                       // },
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) =>
-                      //           PlayerScreen(player: searchController.text),
-                      //     ));
-                      showOnScreen(ref.watch(playerDataProvider(player)));
+                  // IconButton(
+                  //   onPressed: () {
+                  //     // Navigator.push(
+                  //     //     context,
+                  //     //     MaterialPageRoute(
+                  //     //       builder: (context) =>
+                  //     //           PlayerScreen(player: searchController.text),
+                  //     //     ));
+                  //     showOnScreen(ref.watch(playerDataProvider(player)));
                       
-                    },
-                    icon: const Icon(Icons.search),
-                  )
+                  //   },
+                  //   icon: const Icon(Icons.search),
+                  // )
                 ],
               ),
               const SizedBox(height: 10.0),
