@@ -13,15 +13,15 @@ class LeagueScreen extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    final _data = ref.watch(teamDetailsDataProvider(team));
+    final leagueData = ref.watch(teamDetailsDataProvider(team));
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(0, 155, 135, 135),
         title: const Text('League'),
       ),
-      body: _data.when(
-          data: (_data) {
-            List<Team> leagueList = _data.map((e) => e).toList();
+      body: leagueData.when(
+          data: (data) {
+            List<Team> leagueList = data.map((e) => e).toList();
             return Column(
               children: [
                 Expanded(

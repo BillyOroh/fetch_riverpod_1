@@ -44,32 +44,32 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
     allTeam() {
       return allTeamData.when(
-          data: (_data) {
-            List<AllLeague> leagueList = _data.map((e) => e).toList();
+          data: (data) {
+            List<AllLeague> leagueList = data.map((e) => e).toList();
             return Expanded(
               child: ListView.builder(
                 itemCount: 50,
                 itemBuilder: (_, index) {
-                  Color? sportColor() {
-                    if (leagueList[index].strSport == 'Soccer') {
-                      return Colors.amber;
-                    } else {
-                      return Colors.blue;
-                    }
-                    // Color? color;
-                    // switch (leagueList[index].strSport) {
-                    //   case SportCatagory.soccer:
-                    //     color = Colors.amber;
-                    //     break;
-                    //   case SportCatagory.basketball:
-                    //     color = Colors.green;
-                    //     break;
-                    //   case SportCatagory.cricket:
-                    //     color = Colors.red;
-                    //     break;
-                    // }
-                    // return color;
-                  }
+                  // Color? sportColor() {
+                  //   if (leagueList[index].strSport == 'Soccer') {
+                  //     return Colors.amber;
+                  //   } else {
+                  //     return Colors.blue;
+                  //   }
+                  //   // Color? color;
+                  //   // switch (leagueList[index].strSport) {
+                  //   //   case SportCatagory.soccer:
+                  //   //     color = Colors.amber;
+                  //   //     break;
+                  //   //   case SportCatagory.basketball:
+                  //   //     color = Colors.green;
+                  //   //     break;
+                  //   //   case SportCatagory.cricket:
+                  //   //     color = Colors.red;
+                  //   //     break;
+                  //   // }
+                  //   // return color;
+                  // }
 
                   sportImage() {
                     if (leagueList[index].strSport == "Soccer") {
@@ -118,8 +118,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     
     allPlayer() {
       return playerData.when(
-          data: (value) {
-            List<Player> leagueList = value.map((e) => e).toList();
+          data: (data) {
+            List<Player> leagueList = data.map((e) => e).toList();
             return Expanded(
               child: ListView.builder(
                 itemCount: leagueList.length,
