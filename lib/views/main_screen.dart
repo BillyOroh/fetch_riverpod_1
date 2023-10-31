@@ -201,9 +201,9 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                     child: TextField(
                       controller: searchController,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 12.0),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
                         hintText: 'Search player...',
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: const Icon(Icons.search),
                         fillColor: Colors.grey.shade300,
                         filled: true,
                         focusedBorder: OutlineInputBorder(
