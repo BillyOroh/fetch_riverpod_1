@@ -1,3 +1,4 @@
+import 'package:fetch_riverpod_1/views/team_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:fetch_riverpod_1/model/model.dart';
@@ -33,6 +34,14 @@ class LeagueScreen extends ConsumerWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         child: ListTile(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TeamScreen(
+                                      team: leagueList[index]),
+                                ));
+                          },
                           title: Text(leagueList[index].strTeam),
                           subtitle: Text(leagueList[index].strDescriptionEN),
                           leading: CircleAvatar(
