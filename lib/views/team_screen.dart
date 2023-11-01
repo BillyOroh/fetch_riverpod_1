@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:fetch_riverpod_1/models/model_2.dart';
+import 'package:fetch_riverpod_1/models/model_3.dart';
 
 class TeamScreen extends StatelessWidget {
-  const TeamScreen({
+   const TeamScreen({
     super.key,
-    required this.team,
+    this.team,
+    this.player,
   });
-  final Team team;
+  final Team? team;
+  final Player? player;
 
   @override
   Widget build(BuildContext context) {
-    // int index = team[index];
+    final isTeam = team != null;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(0, 155, 135, 135),
-        title: const Text('Team'),
+        title:  Text(isTeam ? 'Team' : 'Player'),
       ),
       body: Center(
         child: Padding(
@@ -23,16 +26,16 @@ class TeamScreen extends StatelessWidget {
             children: [
               Center(
                 child: GestureDetector(
-                  onTap: () => print(team.strTeamBadge),
+                  onTap: () => print(team!.strTeamBadge),
                   child: CircleAvatar(
                     maxRadius: 100,
-                    backgroundImage: NetworkImage(team.strTeamBadge),
+                    backgroundImage: NetworkImage(isTeam ? team!.strTeamBadge : player?.strThumb ?? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"),
                     backgroundColor: Colors.transparent,
                   ),
                 ),
               ),
               const SizedBox(height: 20),
-              Text(team.strTeam),
+              Text(isTeam ? team!.strTeam : player!.strPlayer),
             ],
           ),
         ),

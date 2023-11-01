@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:fetch_riverpod_1/views/league_screen.dart';
+import 'package:fetch_riverpod_1/views/team_screen.dart';
 // import 'package:fetch_riverpod_1/views/players_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -129,14 +130,14 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0)),
                   child: ListTile(
-                    // onTap: () {
-                    //   Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => LeagueScreen(
-                    //             team: leagueList[index].strLeague),
-                    //       ));
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TeamScreen(
+                                player: leagueList[index]),
+                          ));
+                    },
                     title: Text(leagueList[index].strPlayer),
                     subtitle: Text(
                         leagueList[index].strDescriptionEN ?? 'No information on this player'),
