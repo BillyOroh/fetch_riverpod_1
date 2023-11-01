@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fetch_riverpod_1/models/model_2.dart';
 
 class TeamScreen extends StatelessWidget {
-  TeamScreen({
+  const TeamScreen({
     super.key,
     required this.team,
   });
