@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:fetch_riverpod_1/views/league_screen.dart';
-import 'package:fetch_riverpod_1/views/team_screen.dart';
+import 'package:fetch_riverpod_1/views/detail_screen.dart';
 // import 'package:fetch_riverpod_1/views/players_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,13 +30,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(
     BuildContext context,
-    
   ) {
-    
     final allTeamData = ref.watch(allLeagueDataProvider);
     String player = searchController.text;
     AsyncValue<List<Player>> playerData = ref.watch(playerDataProvider(player));
-    
 
     getRandomColor() {
       Random random = Random();
@@ -116,7 +113,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               ));
     }
 
-    
     allPlayer() {
       return playerData.when(
           data: (data) {
@@ -126,34 +122,34 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 itemCount: leagueList.length,
                 itemBuilder: (_, index) {
                   return Card(
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TeamScreen(
-                                player: leagueList[index]),
-                          ));
-                    },
-                    title: Text(leagueList[index].strPlayer),
-                    subtitle: Text(
-                        leagueList[index].strDescriptionEN ?? 'No information on this player'),
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: NetworkImage(leagueList[index]
-                              .strThumb ??
-                          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"),
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  DetailScreen(player: leagueList[index]),
+                            ));
+                      },
+                      title: Text(leagueList[index].strPlayer),
+                      subtitle: Text(leagueList[index].strDescriptionEN ??
+                          'No information on this player'),
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: NetworkImage(leagueList[index]
+                                .strThumb ??
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"),
+                      ),
                     ),
-                  ),
-                );
+                  );
                 },
               ),
             );
           },
-           error: (err, s) {
+          error: (err, s) {
             return const Center(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -202,7 +198,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                     child: TextField(
                       controller: searchController,
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(vertical: 12.0),
                         hintText: 'Search player...',
                         prefixIcon: const Icon(Icons.search),
                         fillColor: Colors.grey.shade300,
@@ -241,7 +238,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                   //     //           PlayerScreen(player: searchController.text),
                   //     //     ));
                   //     showOnScreen(ref.watch(playerDataProvider(player)));
-                      
+
                   //   },
                   //   icon: const Icon(Icons.search),
                   // )

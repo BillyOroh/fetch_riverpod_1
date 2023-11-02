@@ -1,4 +1,4 @@
-import 'package:fetch_riverpod_1/views/team_screen.dart';
+import 'package:fetch_riverpod_1/views/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:fetch_riverpod_1/model/model.dart';
@@ -39,7 +39,7 @@ class LeagueScreen extends ConsumerWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      TeamScreen(team: leagueList[index]),
+                                      DetailScreen(team: leagueList[index]),
                                 ));
                           },
                           title: Text(leagueList[index].strTeam),
