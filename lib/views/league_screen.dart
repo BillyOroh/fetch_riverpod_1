@@ -18,7 +18,7 @@ class LeagueScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(0, 155, 135, 135),
-        title: const Text('League'),
+        title: Text(team),
       ),
       body: leagueData.when(
           data: (data) {
@@ -38,8 +38,8 @@ class LeagueScreen extends ConsumerWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => TeamScreen(
-                                      team: leagueList[index]),
+                                  builder: (context) =>
+                                      TeamScreen(team: leagueList[index]),
                                 ));
                           },
                           title: Text(leagueList[index].strTeam),
