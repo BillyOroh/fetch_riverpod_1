@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fetch_riverpod_1/models/model_2.dart';
-import 'package:fetch_riverpod_1/models/model_3.dart';
+import 'package:fetch_riverpod_1/league_page/league_model.dart';
+import 'package:fetch_riverpod_1/players_page/players_model.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({

@@ -1,12 +1,12 @@
 import 'dart:math';
 
-import 'package:fetch_riverpod_1/views/league_screen.dart';
+import 'package:fetch_riverpod_1/league_page/league_screen.dart';
 import 'package:fetch_riverpod_1/views/detail_screen.dart';
 // import 'package:fetch_riverpod_1/views/players_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fetch_riverpod_1/models/model.dart';
-import 'package:fetch_riverpod_1/models/model_3.dart';
+import 'package:fetch_riverpod_1/home_page/home_model.dart';
+import 'package:fetch_riverpod_1/players_page/players_model.dart';
 import 'package:fetch_riverpod_1/services/services.dart';
 import 'package:fetch_riverpod_1/constants/colors.dart';
 

@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
-import 'package:fetch_riverpod_1/models/model.dart';
-import 'package:fetch_riverpod_1/models/model_2.dart';
-import 'package:fetch_riverpod_1/models/model_3.dart';
+import 'package:fetch_riverpod_1/home_page/home_model.dart';
+import 'package:fetch_riverpod_1/league_page/league_model.dart';
+import 'package:fetch_riverpod_1/players_page/players_model.dart';
 
 class ApiServices {
   // final WidgetRef ref;
@@ -66,8 +66,8 @@ final teamDetailsDataProvider =
     FutureProvider.autoDispose.family<List<Team>, String>((ref, team) async {
   return ref.watch(leagueProvider).getTeamDetails(team);
 });
-final playerDataProvider =
-    FutureProvider.autoDispose.family<List<Player>, String>((ref, player) async {
+final playerDataProvider = FutureProvider.autoDispose
+    .family<List<Player>, String>((ref, player) async {
   return ref.watch(leagueProvider).getPlayer(player);
 });
 
