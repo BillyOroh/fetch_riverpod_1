@@ -192,57 +192,64 @@ class _MainScreenState extends ConsumerState<MainScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: searchController,
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.symmetric(vertical: 12.0),
-                        hintText: 'Search player...',
-                        prefixIcon: const Icon(Icons.search),
-                        fillColor: Colors.grey.shade300,
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
+              Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white24,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: searchController,
+                        decoration: InputDecoration(
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 12.0),
+                          hintText: 'Search player...',
+                          prefixIcon: const Icon(Icons.search),
+                          fillColor: Colors.grey.shade300,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                const BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                const BorderSide(color: Colors.transparent),
+                          ),
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
-                        ),
+                        onChanged: (value) {
+                          playerData = ref.watch(playerDataProvider(value));
+                          // ref.watch(playerDataProvider(value));
+                          // showOnScreen(playerData);
+                          // print(playerData.hasValue);
+                          // print(playerData.value);
+                          print(value);
+                        },
+                        // onSubmitted: (player) {
+                        //   searchController.text = player;
+                        //   print(player);
+                        // },
                       ),
-                      onChanged: (value) {
-                        playerData = ref.watch(playerDataProvider(value));
-                        // ref.watch(playerDataProvider(value));
-                        // showOnScreen(playerData);
-                        // print(playerData.hasValue);
-                        // print(playerData.value);
-                        print(value);
-                      },
-                      // onSubmitted: (player) {
-                      //   searchController.text = player;
-                      //   print(player);
-                      // },
                     ),
-                  ),
-                  // IconButton(
-                  //   onPressed: () {
-                  //     // Navigator.push(
-                  //     //     context,
-                  //     //     MaterialPageRoute(
-                  //     //       builder: (context) =>
-                  //     //           PlayerScreen(player: searchController.text),
-                  //     //     ));
-                  //     showOnScreen(ref.watch(playerDataProvider(player)));
+                    // IconButton(
+                    //   onPressed: () {
+                    //     // Navigator.push(
+                    //     //     context,
+                    //     //     MaterialPageRoute(
+                    //     //       builder: (context) =>
+                    //     //           PlayerScreen(player: searchController.text),
+                    //     //     ));
+                    //     showOnScreen(ref.watch(playerDataProvider(player)));
 
-                  //   },
-                  //   icon: const Icon(Icons.search),
-                  // )
-                ],
+                    //   },
+                    //   icon: const Icon(Icons.search),
+                    // )
+                  ],
+                ),
               ),
               const SizedBox(height: 10.0),
               showOnScreen(),
