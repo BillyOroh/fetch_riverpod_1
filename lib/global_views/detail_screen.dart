@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fetch_riverpod_1/league_page/league_model.dart';
+import 'package:fetch_riverpod_1/leagues_page/leagues_model.dart';
 import 'package:fetch_riverpod_1/players_page/players_model.dart';
 
 class DetailScreen extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:fetch_riverpod_1/views/detail_screen.dart';
+import 'package:fetch_riverpod_1/global_views/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fetch_riverpod_1/league_page/league_model.dart';
+import 'package:fetch_riverpod_1/leagues_page/leagues_model.dart';
 import 'package:fetch_riverpod_1/services/services.dart';
 
 class LeagueScreen extends ConsumerWidget {

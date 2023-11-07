@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
 import 'package:fetch_riverpod_1/home_page/home_model.dart';
-import 'package:fetch_riverpod_1/league_page/league_model.dart';
+import 'package:fetch_riverpod_1/leagues_page/leagues_model.dart';
 import 'package:fetch_riverpod_1/players_page/players_model.dart';
 
 class ApiServices {

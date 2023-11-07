@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:fetch_riverpod_1/league_page/league_screen.dart';
-import 'package:fetch_riverpod_1/views/detail_screen.dart';
+import 'package:fetch_riverpod_1/leagues_page/leagues_screen.dart';
+import 'package:fetch_riverpod_1/global_views/detail_screen.dart';
 // import 'package:fetch_riverpod_1/views/players_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
